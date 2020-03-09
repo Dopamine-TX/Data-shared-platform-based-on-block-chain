@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>基于区块链的数据共享平台</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <style>
+      .box1
+      {
+        margin-left:20%;
+        width:60%;
+        margin-right:20%;
+        border-radius: 5%;
+        overflow:hidden;
+      }
+      .box2
+      {
+        margin-left:10%;
+        width:80%;
+        margin-right:10%;
+        border-radius: 1%;
+        overflow:hidden;
+      }
+      html,body{ height:100%;}
+      #layer_data{display:none;margin-top:4%;margin-bottom:2%;}
+      #layer_share{display:none;margin-top:4%;margin-bottom:2%;}
+      #layer_alg{display:none; margin-top:4%;margin-bottom:2%;}
+      
+    </style>
+     <script>
+      $(document).ready(function() {
+        $("#news").click(function(){
+           $("#layer_news").show();
+           $("#layer_data").hide();
+           $("#layer_share").hide();
+           $("#layer_alg").hide();
+
+           $("#news").addClass("active");
+           $("#data").removeClass("active");
+           $("#share").removeClass("active");
+           $("#alg").removeClass("active");
+        });    
+         $("#data").click(function(){
+           $("#layer_news").hide();
+           $("#layer_data").show();
+           $("#layer_share").hide();
+           $("#layer_alg").hide();
+
+           $("#news").removeClass("active");
+           $("#data").addClass("active");
+           $("#share").removeClass("active");
+           $("#alg").removeClass("active");
+        }); 
+        $("#share").click(function(){
+           $("#layer_news").hide();
+           $("#layer_data").hide();
+           $("#layer_share").show();
+           $("#layer_alg").hide();
+
+           $("#news").removeClass("active");
+           $("#data").removeClass("active");
+           $("#share").addClass("active");
+           $("#alg").removeClass("active");
+        }); 
+  
+        $("#alg").click(function(){
+           $("#layer_news").hide();
+           $("#layer_data").hide();
+           $("#layer_share").hide();
+           $("#layer_alg").show();
+
+           $("#news").removeClass("active");
+           $("#data").removeClass("active");
+           $("#share").removeClass("active");
+           $("#alg").addClass("active");
+        }); 
+
+	
+        $("#commitBtn_data").click(function(){
+        const dataName = document.querySelector('#data_name').value
+	const detail = document.querySelector('#detail').value
+	const beizhu = document.querySelector('#beizhu').value
+	var mydate = new Date();
+        var time=mydate.toLocaleString();
+	var data = { data: JSON.stringify({dataName,detail,beizhu,time,})}							
+	if (dataName === '' || detail === '') {
+	alert('带 * 数据不能为空')
+	}
+       else{
+         $.ajax({
+        url:"http://127.0.0.1:5000/person/send_data",
+        type: 'POST',
+        data: data,
+        success: function (msg) {
+            document.location.reload(true);}
+          })
+       document.location.reload(true);	
+        }
+        });
+
+
+        $("#commitBtn_alg").click(function(){
+        const alg_name = document.querySelector('#alg_name').value
+        const intro = document.querySelector('#intro').value
+        const form = document.querySelector('#form').value
+        const code = document.querySelector('#code').files[0]
+        const beizhu = document.querySelector('#beizhu').value
+	var mydate = new Date();
+        var time=mydate.toLocaleString();
+
+        var data = { data: JSON.stringify({alg_name,intro,form,code,beizhu,time})}							
+	if (alg_name === '' || intro === '' || form === '' || code === '' ) {
+	alert('带 * 数据不能为空')
+	}
+       else{
+         $.ajax({
+        url:"http://127.0.0.1:5000/person/send_alg",
+        type: 'POST',
+        data: data,
+        success: function (msg) {
+            document.location.reload(true);}
+          })
+       document.location.reload(true);	
+        }
+        });
+   
+   
+
+	});    
+    </script>
+    <!-- Bootstrap 981018 -->
+   
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css"/>-->
+    <!--图标库-->
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="background-color:rgb(240,238,238);">
+    <nav class="navbar navbar-default">
+
+      <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                    <li>  <a href="#" style="margin-left:50px; font-size:20px;"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span>  数据共享平台</a></li>
+              </ul>
+
+
+               <ul class="nav navbar-nav navbar-right">
+                  <li><a href="http://127.0.0.1:5000/">主页</a></li>
+                  <li><a href="http://127.0.0.1:5000/moredata">更多数据</a></li>
+                  <li><a href="http://127.0.0.1:5000/alg">算法库</a></li>
+                  <li><a href="http://127.0.0.1:5000/person">我的</a></li>
+                   <li><a href="{{ url_for('about') }}">关于</a></li>
+                   <li><a href="{{ url_for('logout') }}">退出</a>
+              </ul>
+          </div><!-- /.navbar-collapse --> 
+        </div><!-- /.container-fluid -->
+      </nav>
+      <!--rgb(63, 81, 181)-->
+
+    <div class="box1" style="top:10%; background-color: rgb(51, 122, 183);padding:2%">
+      <img style="border-radius: 50%;width:17%;float:left" src="https://p0.ssl.qhimgs1.com/sdr/400__/t01cc3febc41bd9e57a.jpg">
+      <div style="color:white;padding-left:20%"><h3 id="name">{{user['name']}}</h3><p>ID：{{user['email']}}<span style="margin-left:40%">信用度:{{user['credibility']}}</span></p></div>
+      <textarea class="form-control" style=" margin-top:3%;width:70% ;height: 100px;" placeholder="公司简介">{{user['desc']}}</textarea>
+    </div>
+
+    
+    <div class="box2" style="margin-top:7%; background-color:rgb(248,248,248)">
+    <ul class="nav nav-tabs" style="font-size:1.5rem;margin-left:5%">
+        <li id="news" role="presentation" class="active"><a  href="#here">最新消息</a></li>
+        <li id="data" role="presentation"><a href="#here"><span>上传数据<span></a></li>
+        <li id="share" role="presentation"><a href="#here">共享记录</a></li>
+        <li id="alg" role="presentation"><a href="#here">上传算法</a></li>
+    </ul>
+    <a name="here"></a>
+      <div id="layer_news" style="padding:10%;text-align: center; ">
+       <h3 style="color:gray">暂无最新消息</h3>
+      </div>
+
+    <div id="layer_data" >
+         
+    <table width="80%" border="1" cellspacing="1" cellpadding="4" class="tabtop13" align="center">
+        <tr class="well">
+          <td width="15%" align="center" rowspan="2">数据名称</td>
+          <td width="15%" align="center" rowspan="2">受申请次数</td>
+
+          <td width="15%" align="center" rowspan="2">共享次数</td>
+
+          <td width="15%" align="center" rowspan="2">上传时间</td>
+        <td width="10%" align="center" rowspan="2">详情</td>
+        </tr></table>
+       
+
+    {% for l in datalis %}
+      <table width="80%" border="1" cellspacing="1" cellpadding="4"  class="tabtop13" align="center">
+          <tr class="well">
+             <td width="15%" align="center" rowspan="2">{{l["name"]}}</td>
+            <td width="15%" align="center" rowspan="2">{{l["request_time"]}}</td>
+            <td width="15%" align="center" rowspan="2">{{l["used_time"]}}</td>
+            <td width="15%" align="center" rowspan="2">{{l["time"]}}</td>
+          
+          <td width="10%" align="center" rowspan="2"><a href="{{url_for('data_details',id=l._id)}}" style="color:cadetblue">查看详情</a></td>
+        </tr></table>
+      {% endfor %}
+
+              <div style="margin-top: 3%;margin-left: 75%">
+       
+                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#data_modal" align="right" style="padding:0px 12px 1px 12px;height: 27px;margin-left:2%"><span class="text-center" style="font-size:1.2rem;">上传数据</span></button>
+                
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" id="data_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                          ×
+                        </button>
+                        <h4 class="modal-title" id="data_modal_Label">
+                          上传数据
+                        </h4>
+                      </div>
+                      <div class="modal-body">
+                    {% from "_field.html" import render_field %}
+                        <form action="{{ url_for('send_data') }}" method="post" name="send_data">
+                            {{ dataform.csrf_token }}
+                          {{ render_field(dataform.data_name) }}
+                      <br>
+                        {{ render_field(dataform.detail) }}<br>
+                         {{ render_field(dataform.beizhu) }}<br>
+			
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          取消
+                        </button>
+                        <!--input type="submit" class="btn btn-primary" name="submit" value="提交"-->{{dataform.submit}}
+                          
+                        
+                         </form>
+                       
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal -->
+                </div>
+
+                </div>
+         </div>
+
+         <div id="layer_share">
+         
+            <table width="80%" border="1" cellspacing="1" cellpadding="4"  class="tabtop13" align="center">
+                <tr class="well">
+                  <td width="15%" align="center" rowspan="2">共享方</td>
+                  <td width="12%" align="center" rowspan="2">共享方数据</td>
+                  <td width="15%" align="center" rowspan="2">己方数据</td>
+                  <td width="16%" align="center" rowspan="2">时间</td>
+                  <td width="12%" align="center" rowspan="2">状态</td>
+                <td width="10%" align="center" rowspan="2">详情</td>
+                </tr></table>
+               
+                <table width="80%" border="1" cellspacing="1" cellpadding="4"  class="tabtop13" align="center">
+                <tr class="well">
+                   <td width="15%" align="center" rowspan="2">&nbsp;</td>
+                  <td width="12%" align="center" rowspan="2">&nbsp;</td>
+                  <td width="15%" align="center" rowspan="2">&nbsp;</td>
+                  <td width="16%" align="center" rowspan="2">&nbsp;</td>
+                  <td width="12%" align="center" rowspan="2">&nbsp;</td>
+                <td width="10%" align="center" rowspan="2"><a href="#" style="color:cadetblue">查看详情</a></td>
+              </tr></table>
+        
+              
+
+                      <div style="margin-top: 3%;margin-left: 72%">
+                        <button class="btn btn-primary" align="left" style="padding-top:3px; height: 27px;"><span class="text-center" style="font-size:1.2rem;">查看更多</span></button>
+                       <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#share_modal" align="right" style="padding:0px 12px 1px 12px;height: 27px;margin-left:2%"><span class="text-center" style="font-size:1.2rem;">发起共享</span></button>
+                
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" id="share_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                          ×
+                        </button>
+                        <h4 class="modal-title" id="share_modal_Label">
+                          发起共享请求
+                        </h4>
+                      </div>
+                      <div class="modal-body">己方数据ID*：<input id="selfdata" type="text"><!--这里需要下拉框-->
+                      <br>
+                      <br>接受方数据ID*：<input id="receiverdata" type="text"><a href="#">指定数据ID</a><br>
+                        <br>算法ID*：<input id="algorithm_id" type="text"><a href="#">指定算法ID</a>
+                        
+                        <br></br>押金*：<input id="yajin" type="text" placeholder="￥10000">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                        </button>
+                        <button type="button" id='commitBtn3' class="btn btn-primary">
+                          提交
+                        </button>
+												
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal -->
+                </div>
+
+                      </div>
+                 </div>
+
+                 <div id="layer_alg">
+         
+                    <table width="80%" border="1" cellspacing="1" cellpadding="4"  class="tabtop13" align="center">
+                        <tr class="well">
+                          <td width="15%" align="center" rowspan="2">算法名称</td>
+			  <td width="15%" align="center" rowspan="2">文件</td>                     
+			  <td width="15%" align="center" rowspan="2">使用次数</td>
+                          <td width="15%" align="center" rowspan="2">上传时间</td>
+                
+                        <td width="10%" align="center" rowspan="2">详情</td>
+                        </tr></table>
+                       
+
+{% for l in alglis %}
+      <table width="80%" border="1" cellspacing="1" cellpadding="4"  class="tabtop13" align="center">
+          <tr class="well">
+             <td width="15%" align="center" rowspan="2">{{l["algname"]}}</td>
+	    <td width="15%" align="center" rowspan="2">{{l["name"]}}</td>
+            <td width="15%" align="center" rowspan="2">{{l["used_time"]}}</td>
+            <td width="15%" align="center" rowspan="2">{{l["time"]}}</td>
+          
+          <td width="10%" align="center" rowspan="2"><a href="{{url_for('alg_details',id=l._id)}}" style="color:cadetblue">查看详情</a></td>
+        </tr></table>
+      {% endfor %}
+                
+                     
+        
+                              <div style="margin-top: 3%;margin-left: 75%">
+          
+                              <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#alg_modal" align="right" style="padding:0px 12px 1px 12px;height: 27px;"><span class="text-center" style="font-size:1.2rem;">上传算法</span></button>
+                
+                              <!-- 模态框（Modal） -->
+                              <div class="modal fade" id="alg_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        ×
+                                      </button>
+                                      <h4 class="modal-title" id="alg_modal_Label">
+                                        上传算法
+                                      </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                    {% from "_field.html" import render_field %}
+                        <form action="{{ url_for('send_alg') }}" method="post" name="send_alg" enctype="multipart/form-data">
+                            {{ algform.csrf_token }}
+                          {{ render_field(algform.alg_name) }}
+                      <br>
+                       {{ render_field(algform.detail) }}<br>
+			 {{ render_field(algform.data_form) }}<br>
+
+			 {{ render_field(algform.file) }}<br>
+                         {{ render_field(algform.beizhu) }}<br>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                          取消
+                        </button>
+                        <!--span class="btn btn-primary"-->
+{{algform.submit}}
+                          
+                        
+                         </form>
+
+             </div>
+                                  </div><!-- /.modal-content -->
+                                </div><!-- /.modal -->
+                              </div>
+
+                              </div>
+                            </div>
+
+         
+    </div>
+
+    <div class="text-center"style="margin-top:5%;">
+        <h5>Designed for safe and convenient data sharing</h5>
+        <p>Our team uses blockchain and secure multi-party computing technology to achieve the purpose of<br>safe and convenient data sharing.</p>
+    </div>
+
+
+ 
+
+
+<!--<script>
+  var element=document.getElementById("#data_2")//通过id（btn）获取一个元素
+  element.addEventListener("click",function () {//添加一个单击事件（单击时触发function函数）
+    $("#data_1").addClass("active");
+    alert("第一个事件");
+	
+  })
+  //addEventListener：添加事件监听
+  </script>
+-->
+  </body>
+</html>

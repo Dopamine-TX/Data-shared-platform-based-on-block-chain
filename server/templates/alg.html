@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>算法库</title>
+    <style>
+      .white-text
+      {
+        color:white;
+        font-size:20px; 
+      }
+      .center-text
+      {
+        margin-top:50px;
+        text-align:center;
+        font-size:50px;
+      }
+      .box
+      {
+        background-color:ghostwhite;
+      }
+      .img-left
+      {
+        margin-top:2%;
+        margin-left: 12%;
+        width:370px;
+      }
+      .img-right
+      {
+        margin-top:7%;
+        margin-right: 5%;
+        width:450px;
+        height: 10px;
+      }
+      .right-text
+      {
+        margin-top:6%;
+        margin-right: 5%;
+        margin-left:53%;
+        padding:2%;
+        border-style:solid;
+        border-color:darkblue;
+        border-block-width: 1px;
+      }
+      .left-text
+      {
+        margin-top:10%;
+        margin-right: 47%;
+        margin-left:12%;
+        padding:2%;
+        border-style:solid;
+        border-color:darkblue;
+        border-block-width: 1px;
+      }
+    </style>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css"/>-->
+    <!--图标库-->
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+
+  <body class="box">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li>  <a href="#" style="margin-left:50px; font-size:127%;"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span>  数据共享平台</a></li>
+            </ul>
+    
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="http://127.0.0.1:5000/">主页</a></li>
+                  <li><a href="http://127.0.0.1:5000/moredata">更多数据</a></li>
+                  <li><a href="http://127.0.0.1:5000/alg">算法库</a></li>
+                  <li><a href="http://127.0.0.1:5000/person">我的</a></li>
+                  <li><a href="http://127.0.0.1:5000/about">关于</a></li>
+              </ul>
+          </div><!-- /.navbar-collapse --> 
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="row" style="background-color:rgb(51, 122, 183);margin-top:0%; padding-left: 7%;padding-top:2%;padding-bottom:2%;">
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="算法搜索">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+              </form>
+          </div>
+
+
+    <div class="row" style="margin-top:3%;margin-left:16%;">
+        <div class="col-sm-3 col-md-3">
+          <div class="thumbnail">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569247030838&di=943d2dca58aa2068670e808c8f8db7ca&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F023b5bb5c9ea15ce135afbb9b3003af33b87b2cd.jpg" alt="...">
+            <div class="caption">
+              <p>算法ID：000001</p>
+              <p>算法名称：k均值聚类算法(K-Means)</p>
+              <p>上传者ID：000001</p>
+              <p><a href="#" class="btn btn-primary" role="button">选取</a> <a href="#" class="btn btn-default" role="button">更多</a></p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-sm-3 col-md-3" >
+            <div class="thumbnail">
+            <img src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=16852b6230a85edffa8cf925716f6e1e/03087bf40ad162d95867202e15dfa9ec8a13cd73.jpg" alt="...">
+                <div class="caption">
+                  <p>算法ID：000002</p>
+                  <p>算法名称：临近算法(KNN)</p>
+                  <p>上传者ID：000004</p>
+                  <p><a href="#" class="btn btn-primary" role="button">选取</a> <a href="#" class="btn btn-default" role="button">更多</a></p>
+                </div>
+              </div>
+            </div>
+         
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail">
+            <img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=2fe32fa0ba19ebc4c078719fba1da8c1/37d12f2eb9389b501910f0978c35e5dde6116e03.jpg" alt="...">
+            <div class="caption">
+                <p id="id1">算法ID：000003</p>
+
+               <script>
+                var id_number="123456";
+                document.getElementById("demo").innerHTML="算法id："+id_number;
+               </script>
+
+                <p>算法名称：C4.5算法</p>
+                <p>上传者ID：000125</p>
+                <p><a href="#" class="btn btn-primary" role="button">选取</a> <a  href="#" class="btn btn-default" role="button">更多</a></p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:3%;margin-left:16%;">
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail">
+            <img src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=e8372233743e6709be0042f903fcf800/7acb0a46f21fbe0924d21d0060600c338744ad12.jpg" alt="...">
+            <div class="caption">
+                <p>算法ID：000004</p>
+                <p>算法名称：Adaboost</p>
+                <p>上传者ID：001205</p>
+                <p><a href="#" class="btn btn-primary" role="button">选取</a> <a href="#" class="btn btn-default" role="button">更多</a></p>
+            </div>
+            </div>
+        </div>
+   
+        <div class="col-sm-3 col-md-3" >
+            <div class="thumbnail">
+            <img src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=79ddb116ccef76093c0b9e9916e6c4f1/78310a55b319ebc4c26cc3128526cffc1e171620.jpg" alt="...">
+            <div class="caption">
+                <p>算法ID：000005</p>
+                <p>算法名称：贝叶斯分类算法(NB)</p>
+                <p>上传者ID：001211</p>
+                <p><a href="#" class="btn btn-primary" role="button">选取</a> <a href="#" class="btn btn-default" role="button">更多</a></p>
+            </div>
+            </div>
+        </div>
+   
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569248032035&di=a883aa5c7e8653720285e8217dd47db4&imgtype=0&src=http%3A%2F%2Fimg.it610.com%2Fimage%2Finfo5%2F175d3de315664cb7af3edd22e16b763e.jpg" alt="...">
+            <div class="caption">
+                <p>算法ID：000006</p>
+                <p>算法名称：CART算法</p>
+                <p>上传者ID：001510</p>
+                <p><a href="#" class="btn btn-primary" role="button">选取</a> <a href="#" class="btn btn-default" role="button">更多</a></p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="btn-group" role="group" aria-label="..." style="margin-top:3%;margin-left:37%;">
+        <button type="button" class="btn btn-default">上一页</button>
+        <button type="button" class="btn btn-default">1</button>
+        <button type="button" class="btn btn-default">2</button>
+        <button type="button" class="btn btn-default">3</button>
+        <button type="button" class="btn btn-default">...</button>
+        <button type="button" class="btn btn-default">末页</button>
+        <button type="button" class="btn btn-default">下一页</button>
+      </div>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>基于区块链的数据共享平台</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+    <style>
+	
+	#block{
+	height:auto;
+	border:dashed 2px rgb(51, 122, 183);
+	margin:70px 20%;
+	margin-right:20%}
+	#white{
+	text-decoration: none;
+	color: #fff;}
+	#div1{
+            width: 56%;
+            border-bottom: 3px solid rgb(51, 122, 183);
+        }
+		
+      .white-text
+      {
+        color:white;
+        font-size:20px; 
+      }
+      .center-text
+      {
+        margin-top:50px;
+        text-align:center;
+        font-size:50px;
+      }
+      .box
+      {
+        background-color:ghostwhite;
+      }
+      
+    </style>
+    <!-- Bootstrap -->
+   
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css"/>-->
+    <!--图标库-->
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="background-color:rgb(240,238,238);">
+    <nav class="navbar navbar-default">
+
+      <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                    <li>  <a href="#" style="margin-left:50px; font-size:127%;"><span class="glyphicon glyphicon-sort aria-hidden=true"></span>  数据共享平台</a></li>
+              </ul>
+
+
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">主页</a></li>
+                  <li><a href="#">更多数据</a></li>
+                  <li><a href="#">算法库</a></li>
+                  <li><a href="#">我的</a></li>
+                  <li><a href="test.html">关于</a></li>
+              </ul>
+          </div><!-- /.navbar-collapse --> 
+        </div><!-- /.container-fluid -->
+     </nav>
+
+<div class="well" style="background-color:rgb(51, 122, 183);margin-left:17%;margin-right:17%;">
+
+
+			<h1 class="text-center">190817共享记录</h>
+	
+			
+		<div style="margin:0% 1% 1% 80%;padding-top:7px;padding-left:5px;color:gray;font-size:1.7rem">  
+			  <p>编号：01</p>   
+		</div>
+	</div>
+		
+
+	
+			<div id="block" class="well">
+			  <h3 class="text-left">己方数据</h3>								
+			   <div id="div1"></div>
+			   <div style="padding:2%;">
+			 <p><br>名称：马云的个人财产</p>
+        <p> ID：154369</p>
+       <p> 简介：该数据包含了马云的银行卡金额，与不动产：房产、车产等。</p>
+         </div>	
+         
+      <h3 class="text-left">共享方</h3>								
+			<div id="div1"></div>
+			<div style="padding:2%;">
+			<p><br>名称：刘强东</p>
+        <p>ID：134507</p>
+        <p>简介：京东商城创始人、董事局主席兼首席执行官，毕业于中国人民大学。</p>
+		   </div>	
+
+			<h3 class="text-left">共享方数据</h3>								
+			<div id="div1"></div>
+			<div style="padding:2%;">
+			<p><br>名称：刘强东的个人财产</p>
+        <p>ID：146382</p>
+        <p>简介：该数据包含了刘强东的银行卡金额，与不动产：房产、车产等。</p>
+		   </div>	
+					 
+		  
+		  <h3 class="text-left">算法</h3>								
+			<div id="div1"></div>
+			<div style="padding:2%;">
+          <p><br>名称：百万富翁</p>
+          <p>ID：000003</p>
+          <p>简介：在没有可信第三方的前提下，两个百万富翁如何不泄露自己的真实财产状况来比较谁更有钱。MPC可以在保证各方数据安全的同时，联合使用各方数据来达到特定的效果，从而充分发挥数据的价值。</p>
+         </div>	
+
+         <h3 class="text-left">共享信息</h3>								
+			  <div id="div1"></div>
+          <div style="padding:2%;">
+           <p><br>押金：￥100<br>日期：2019.01.24</p>
+           <p>进度状态： <span style="color:green">执行中…</span></p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              60%
+            </div>
+          </div>
+          <div>
+          <p style="float:left;margin-top:1%">查看结果：</p>
+          <button class=" btn btn-primary" disabled="true" onClick=""><span style="font-size:1.2rem">下 载</span></button> </div>
+        </div>
+    
+			 
+	  </div><!--block块-->
+	  
+		  
+				<div class="text-center">
+				  <h5>Designed for safe and convenient data sharing</h5>
+				  <div style="padding-inline-start:20%;padding-inline-end: 20%;"><p>Our team uses blockchain and secure multi-party computing technology to achieve the purpose of safe and convenient data sharing.</p></div>
+				</div>
+	  
+	</body>
+	</html>
